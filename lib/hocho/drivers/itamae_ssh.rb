@@ -14,7 +14,7 @@ module Hocho
           env = {}.tap do |e|
             e['SUDO_PASSWORD'] = host.sudo_password if host.sudo_password
           end
-          cmd = ["itamae", "ssh", *@itamae_options, "-j", node_json, "-h", host.hostname]
+          cmd = ["itamae", "ssh", *@itamae_options, "-j", node_json, "-h", host.ssh_name]
 
           cmd.push('-u', host.user) if host.user
           cmd.push('-p', host.ssh_port.to_s) if host.ssh_port
